@@ -11,6 +11,11 @@ const OswaldFont= Oswald({ subsets: ["latin"],variable:"--font-oswald" });
 export const metadata: Metadata = {
   title: "Saurashya Portfolio",
   description: "Saurashya official portfolio",
+  icons: {
+    icon: {
+      url: "/saurashya.ico",
+    },
+  }
 };
 
 export default function RootLayout({
