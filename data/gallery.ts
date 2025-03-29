@@ -1,23 +1,23 @@
-import Img1 from "@public/assets/images/gallery/saurashya.jpg";
-import Img2 from "@public/assets/images/gallery/saurashya2.jpg";
-import Img3 from "@public/assets/images/gallery/saurashya3.jpg";
-import Img4 from "@public/assets/images/gallery/saurashya4.jpg";
+import saurashya1 from "@public/assets/images/saurashya1.png";
+import saurashya2 from "@public/assets/images/saurashya2.png";
+import saurashya3 from "@public/assets/images/saurashya3.png"; 
+import saurashya4 from "@public/assets/images/saurashya4.png"; 
 
 export const galleryImages =[
     {
         id:0,
-        img:Img1,
+        img:saurashya1,
     },
     {
         id:1,
-        img:Img2,
+        img:saurashya2,
     },
     {
         id:2,
-        img:Img3,
+        img:saurashya3,
     },
     {
         id:3,
-        img:Img4,
+        img:saurashya4,
     },
 ]
