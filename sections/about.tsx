@@ -1,7 +1,9 @@
 import Background from '@/components/cards/about/background'
 import Me from '@/components/cards/about/me'
 import Resume from '@/components/cards/about/resume'
+import Education from '@/components/cards/featured/education'
 import Experience from '@/components/cards/featured/experience'
+import Instructor from '@/components/cards/featured/instructor'
 import Heading from '@/components/Heading/heading'
 import Card from '@/components/ui/card'
 import Gallery from '@/components/ui/gallery'
@@ -22,13 +24,12 @@ const About = () => {
             </div>
             <div className="space-y-4 md:grid md:grid-cols-2 md:gap-4 md:space-y-0 2xl:grid-cols-3">
                 <div className="space-y-4">
-                <Card title="Instructor">Instructor</Card>
-                <Card title="Certifications">Cerifications</Card>
+                <Instructor/>
                 </div>
                 <div className="space-y-4">
                 <Card title="Stack">Stack</Card>
                 <Experience/>
-                <Card title="Education">Education</Card>
+                <Education/>
                 </div>
                 <div className="hidden 2xl:flex">
                     <Gallery/>

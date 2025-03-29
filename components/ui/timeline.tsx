@@ -36,7 +36,7 @@ export const TimelineItem:FC<TimelineItemProps> = ({date,title,subtitle,link,tag
                 <div className="flex flex-col gap-0.5">
                     {/* TITLE  */}
                 <div className="h-auto flex-none break-words whitespace-pre">
-                    <p className='leading-6 font-medium text-sm'>{title}</p>
+                    <p className='leading-6 font-medium text-sm text-wrap'>{title}</p>
                 </div>
 
             {/* Sub Title  */}
