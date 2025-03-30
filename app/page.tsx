@@ -22,10 +22,9 @@ export default function Home() {
    <WaterWaveWrapper imageUrl="" dropRadius="3" perturbance="3" resolution="2048">
 {()=>
 <div className="pb-8">
-  {/* 
+  
    <Landing/>
-   <FeaturedSection/>
-   */}
+   {/* <FeaturedSection/> */}
    <About/>
    </div>
 }
