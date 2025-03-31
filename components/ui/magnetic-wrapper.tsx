@@ -1,4 +1,3 @@
-"use client";
 import { FC, ReactNode, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -18,7 +17,7 @@ const MagneticWrapper: FC<MagneticWrapperProps> = ({ className, children }) => {
       const { width, height, left, top } = boundingRect;
       const middleX = e.clientX - (left + width / 2);
       const middleY = e.clientY - (top + height / 2);
-      setPosition({ x: middleX * 0.3, y: middleY * 0.3 }); // Reduced effect intensity
+      setPosition({ x: middleX * 0.3, y: middleY * 0.3 }); // Adjust effect intensity
     }
   };
 
@@ -31,11 +30,11 @@ const MagneticWrapper: FC<MagneticWrapperProps> = ({ className, children }) => {
       animate={position}
       transition={{
         type: "spring",
-        stiffness: 100, // Increased stiffness for a snappier feel
+        stiffness: 100,
         damping: 10,
         mass: 0.5,
       }}
-      onMouseMove={handleMouse}
+      onMouseMove={handleMouse} // ✅ Fixed type
       onMouseLeave={reset}
     >
       {children}
