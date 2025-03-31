@@ -1,10 +1,5 @@
 "use client";
 import { FC, ReactNode, useEffect, useState } from "react";
-import dynamic from "next/dynamic";
-
-const WaterWave = dynamic(() => import("react-water-wave"), {
-    ssr: false, // Disable SSR for this component
-});
 
 interface WaterWaveWrapperProps {
     imageUrl: string;
@@ -22,21 +17,30 @@ const WaterWaveWrapper: FC<WaterWaveWrapperProps> = ({
     children,
 }) => {
     const [isMounted, setIsMounted] = useState(false);
+    const [WaterWaveComponent, setWaterWaveComponent] = useState<any>(null);
 
     useEffect(() => {
-        setIsMounted(true);
+        // Only import the component on the client side
+        import("react-water-wave").then((mod) => {
+            setWaterWaveComponent(() => mod.default);
+            setIsMounted(true);
+        });
     }, []);
 
-    return isMounted ? (
-        <WaterWave
+    if (!isMounted || !WaterWaveComponent) {
+        return null;
+    }
+
+    return (
+        <WaterWaveComponent
             imageUrl={imageUrl}
             dropRadius={dropRadius}
             perturbance={perturbance}
             resolution={resolution}
         >
             {children}
-        </WaterWave>
-    ) : null;
+        </WaterWaveComponent>
+    );
 };
 
 export default WaterWaveWrapper;
