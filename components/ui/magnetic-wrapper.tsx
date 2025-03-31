@@ -1,4 +1,5 @@
-import { FC, ReactNode, useRef, useState } from "react";
+"use client";
+import React, { FC, ReactNode, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -11,13 +12,13 @@ const MagneticWrapper: FC<MagneticWrapperProps> = ({ className, children }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
-  const handleMouse = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouse = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const boundingRect = ref.current?.getBoundingClientRect();
     if (boundingRect) {
       const { width, height, left, top } = boundingRect;
       const middleX = e.clientX - (left + width / 2);
       const middleY = e.clientY - (top + height / 2);
-      setPosition({ x: middleX * 0.3, y: middleY * 0.3 }); // Adjust effect intensity
+      setPosition({ x: middleX * 0.3, y: middleY * 0.3 });
     }
   };
 
@@ -34,7 +35,7 @@ const MagneticWrapper: FC<MagneticWrapperProps> = ({ className, children }) => {
         damping: 10,
         mass: 0.5,
       }}
-      onMouseMove={handleMouse} // ✅ Fixed type
+      onMouseMove={handleMouse} // ✅ Now properly typed
       onMouseLeave={reset}
     >
       {children}
