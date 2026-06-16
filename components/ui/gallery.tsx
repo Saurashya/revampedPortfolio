@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 const Gallery = () => {
   return (
-    <div className='h-[550px] sm:h-[650px] md:h-full 2xl:h-[750px] w-full'>
+    <div className='h-[450px] sm:h-[550px] 2xl:h-[650px] w-full'>
         <Swiper modules={[Pagination,Autoplay]} pagination={{clickable:true}} autoplay={{delay:3000,disableOnInteraction:false}} className='mySwiper rounded-2xl'>
             {
                 galleryImages.map((img)=>(

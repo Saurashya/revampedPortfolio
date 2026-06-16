@@ -1,7 +1,7 @@
 export default function ScrollDown() {
     return (
-      <div className="w-[10rem] h-[10rem] rounded-full border border-primary-foreground grid place-items-center">
-        <div className="grid place-items-center w-[2.9rem] h-[3.6rem]">
+      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-white/30 grid place-items-center backdrop-blur-sm transition-colors duration-200 hover:border-green-benzol">
+        <div className="grid place-items-center w-5 h-6 animate-bounce">
           <svg
             width="100%"
             height="100%"

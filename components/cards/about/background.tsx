@@ -3,7 +3,7 @@ import React from 'react';
 
 const Background = () => {
   return (
-    <Card className='md:h-full p-6' title='My Background'>
+    <Card title='My Background'>
       <p className='text-lg text-gray-300'>
         A graduate from a BSc.CSIT background and a full-stack developer specializing in the MERN stack. With a strong foundation in software development, I am passionate about building scalable and efficient IT-based solutions for clients.
       </p>
