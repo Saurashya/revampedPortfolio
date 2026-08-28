@@ -9,8 +9,9 @@ const MainFont= Bricolage_Grotesque({ subsets: ["latin"] });
 const OswaldFont= Oswald({ subsets: ["latin"],variable:"--font-oswald" });
 
 export const metadata: Metadata = {
-  title: "Saurashya Portfolio",
-  description: "Saurashya official portfolio",
+  title: "Saurashya Rayamajhi | Full-stack Developer",
+  description:
+    "Portfolio of Saurashya Singh Rayamajhi, CTO, co-founder, full-stack developer, and MERN instructor based in Kathmandu, Nepal.",
   icons: {
     icon: {
       url: "/saurashya.ico",

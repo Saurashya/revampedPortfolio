@@ -18,6 +18,7 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
+import { RiStackLine } from "react-icons/ri";
 
 interface Skill {
   name: string;
@@ -35,6 +36,7 @@ const skills: Skill[] = [
   { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
   { name: "Tailwind CSS", icon: SiTailwindcss, color: "#38BDF8" },
   { name: "Redux", icon: SiRedux, color: "#764ABC" },
+  { name: "Zustand", icon: RiStackLine, color: "#FFFFFF" },
   { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
   { name: "Prisma", icon: SiPrisma, color: "#FFFFFF" },
   { name: "Git", icon: SiGit, color: "#F05032" },

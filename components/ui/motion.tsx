@@ -48,15 +48,10 @@ export const Reveal: FC<RevealProps> = ({
   once = true,
   amount = 0.25,
 }) => {
-  const reduce = useReducedMotion();
-  const hidden = reduce
-    ? { opacity: 0 }
-    : { opacity: 0, ...offset(direction, distance) };
-
   return (
     <motion.div
       className={className}
-      initial={hidden}
+      initial={false}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once, amount }}
       transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
@@ -95,7 +90,7 @@ export const Stagger: FC<StaggerProps> = ({
     <motion.div
       className={className}
       variants={variants}
-      initial="hidden"
+      initial={false}
       whileInView="show"
       viewport={{ once, amount }}
     >

@@ -10,7 +10,7 @@ const Resume = () => {
   return (
     <Card>
         <p className='text-lg xl:text-xl font-medium text-primary-foreground'>
-        Passionate Full-Stack Developer and MERN Stack Instructor, specializing in MongoDB, Express.js, React.js, and Node.js. As CTO at Panacea Solution, I build high-performance applications and mentor aspiring developers. With expertise in backend optimization, frontend state management, and API development, I focus on crafting clean, scalable solutions. Let’s connect and create something impactful! 🚀
+        Full-stack developer with 2+ years of experience independently delivering products end to end. As CTO and co-founder at Panacea Solution, I build maintainable, high-performance applications while mentoring developers as a MERN instructor. My focus is clean architecture, reliable systems, and user experiences that make complex work feel simple.
         </p>
         {/*signature image*/}
         <div>

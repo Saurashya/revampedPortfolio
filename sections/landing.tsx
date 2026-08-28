@@ -38,7 +38,7 @@ export default function Landing() {
 
       <motion.div
         variants={container}
-        initial="hidden"
+        initial={false}
         animate="show"
         className="relative z-10 flex w-full max-w-7xl flex-col items-center text-center"
       >
@@ -47,7 +47,7 @@ export default function Landing() {
           className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-secondary-foreground backdrop-blur-sm sm:text-sm"
         >
           <span className="h-2 w-2 animate-pulse rounded-full bg-green-benzol" />
-          Available for work
+          Open to frontend &amp; full-stack roles
         </motion.span>
 
         <h1 className="flex flex-col items-center font-medium uppercase leading-[0.92] tracking-tight text-primary-foreground">
@@ -73,8 +73,8 @@ export default function Landing() {
           variants={fade}
           className="mt-7 max-w-xl text-balance text-base leading-relaxed text-secondary-foreground sm:text-lg"
         >
-          Empowering innovation through inspired design — where challenges spark
-          creativity and solutions redefine possibilities.
+          Full-stack developer with 2+ years of experience delivering scalable
+          web applications, enterprise systems, and thoughtful user experiences.
         </motion.p>
 
         <motion.div
@@ -100,7 +100,7 @@ export default function Landing() {
       {/* Live clock — desktop only to avoid clutter on mobile */}
       <motion.div
         variants={fade}
-        initial="hidden"
+        initial={false}
         animate="show"
         className="absolute bottom-8 right-8 z-10 hidden lg:block"
       >
@@ -109,7 +109,7 @@ export default function Landing() {
 
       {/* Scroll cue */}
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={false}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.6 }}
         className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 sm:block"

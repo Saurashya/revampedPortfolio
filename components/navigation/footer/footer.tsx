@@ -16,8 +16,8 @@ function Footer() {
             Saurashya Rayamajhi
           </p>
           <p className="mt-2 text-sm leading-relaxed text-secondary-foreground">
-            Full-Stack Developer & MERN Instructor crafting scalable,
-            high-performance web experiences.
+            CTO, co-founder, full-stack developer, and MERN instructor building
+            scalable, high-performance web experiences.
           </p>
         </div>
 

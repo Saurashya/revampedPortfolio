@@ -5,10 +5,10 @@ const Background = () => {
   return (
     <Card title='My Background'>
       <p className='text-lg text-gray-300'>
-        A graduate from a BSc.CSIT background and a full-stack developer specializing in the MERN stack. With a strong foundation in software development, I am passionate about building scalable and efficient IT-based solutions for clients.
+        I am a BSc.CSIT graduate and full-stack developer with 2+ years of experience building scalable web applications and enterprise systems. My work spans React, Next.js, TypeScript, Node.js, Express, PostgreSQL, and Prisma.
       </p>
       <p className='mt-4 text-lg text-gray-300'>
-        Currently, I serve as the CTO at Panacea Solution, where I lead the development of cutting-edge software solutions and mentor aspiring developers. I take great interest in spreading my knowledge through teaching, helping developers bridge the gap between learning and real-world applications.
+        At Panacea Solution, I serve as CTO, co-founder, and full-stack developer, leading products from architecture through deployment. I also teach the MERN stack and mentor developers in debugging, Git workflows, code quality, and real-world engineering practices.
       </p>
     </Card>
   );

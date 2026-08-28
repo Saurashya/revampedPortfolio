@@ -21,7 +21,7 @@ const Me = () => {
         <div className="absolute inset-x-4 bottom-4 flex flex-col items-start gap-2">
           <Tag text="Hello, World 👋" />
           <Tag text="I am Saurashya Singh Rayamajhi" />
-          <Tag text="Full Stack Developer 💪" />
+          <Tag text="CTO / Co-founder / Full-stack Developer 💪" />
           <Tag text="MERN Instructor 💻" />
         </div>
       </div>

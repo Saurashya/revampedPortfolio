@@ -1,7 +1,7 @@
 "use client";
 
 import { FC } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import SvgCurve from "../visualEffects/svg-curve";
 import { HeadingAnimatedSvg } from "./heading-animated-svg";
 
@@ -12,7 +12,6 @@ interface HeadingProps {
 }
 
 const Heading: FC<HeadingProps> = ({ number, title_1, title_2 }) => {
-  const reduce = useReducedMotion();
   return (
     <div className="relative my-8 px-1 sm:my-10 sm:px-8 z-20">
       {/* oversized ghost index */}
@@ -24,7 +23,7 @@ const Heading: FC<HeadingProps> = ({ number, title_1, title_2 }) => {
       </span>
 
       <motion.div
-        initial={reduce ? { opacity: 0 } : { opacity: 0, y: 30 }}
+        initial={false}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}

@@ -27,20 +27,20 @@ interface TimelineItemProps {
 
 export const TimelineItem:FC<TimelineItemProps> = ({date,title,subtitle,link,tag,isCourse}) => {
     return (
-        <div className="flex flex-wrap gap-12 min-h justify-start relative">
-            <div className="h-auto flex-none break-words whitespace-pre" style={{width:`${isCourse ? "0" : "" }`}}>
-            <p className='text-secondary-foreground'>{date}</p>
-            </div>
+        <div className={isCourse ? "relative" : "grid gap-2 sm:grid-cols-[8.5rem_minmax(0,1fr)] sm:gap-4"}>
+            {!isCourse && (
+              <p className='text-sm text-secondary-foreground'>{date}</p>
+            )}
 
-            <div className="flex gap-x-2" style={{transform:`${isCourse ? "translateX(-45px)" : "" }`}}>
+            <div className="min-w-0">
                 <div className="flex flex-col gap-0.5">
                     {/* TITLE  */}
-                <div className="h-auto flex-none break-words whitespace-pre">
-                    <p className='leading-6 font-medium text-sm text-wrap'>{title}</p>
+                <div>
+                    <p className='text-wrap text-sm font-medium leading-6'>{title}</p>
                 </div>
 
             {/* Sub Title  */}
-                <div className="flex items-center gap-2 w-max">
+                <div className="flex max-w-full items-center gap-2">
                     {
                         link?<Link href={link} className='font-extralight text-sm'><Body link={link} tag={tag} subTitle={subtitle}/></Link>:(
                             <Body tag={tag} subTitle={subtitle}/>
@@ -61,8 +61,8 @@ interface BodyProps{
 
 const Body:FC<BodyProps>=({link,tag,subTitle})=>{
     return(
-        <div className='text-secondary-foreground flex items-center'>
-            <p className='text-sm font-normal leading-6 mt-1'>{subTitle}</p>
+        <div className='flex min-w-0 flex-wrap items-center text-secondary-foreground'>
+            <p className='mt-1 text-sm font-normal leading-6'>{subTitle}</p>
             {
                 link?<FiArrowUpRight/>:null
             }
