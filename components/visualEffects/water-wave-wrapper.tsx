@@ -1,12 +1,43 @@
 "use client";
-import { FC, ReactNode, useEffect, useState } from "react";
+import {
+    Component,
+    ComponentType,
+    FC,
+    ReactNode,
+    useEffect,
+    useState,
+} from "react";
+
+interface WaterWaveComponentProps {
+    imageUrl: string;
+    dropRadius: number;
+    perturbance: number;
+    resolution: number;
+    className?: string;
+    children: () => ReactNode;
+}
 
 interface WaterWaveWrapperProps {
     imageUrl: string;
-    dropRadius: string;
-    perturbance: string;
-    resolution: string;
+    dropRadius: number;
+    perturbance: number;
+    resolution: number;
     children: () => ReactNode;
+}
+
+class WaterWaveBoundary extends Component<
+    { children: ReactNode; fallback: ReactNode },
+    { failed: boolean }
+> {
+    state = { failed: false };
+
+    static getDerivedStateFromError() {
+        return { failed: true };
+    }
+
+    render() {
+        return this.state.failed ? this.props.fallback : this.props.children;
+    }
 }
 
 const WaterWaveWrapper: FC<WaterWaveWrapperProps> = ({
@@ -16,30 +47,49 @@ const WaterWaveWrapper: FC<WaterWaveWrapperProps> = ({
     resolution,
     children,
 }) => {
-    const [isMounted, setIsMounted] = useState(false);
-    const [WaterWaveComponent, setWaterWaveComponent] = useState<any>(null);
+    const [WaterWaveComponent, setWaterWaveComponent] = useState<ComponentType<WaterWaveComponentProps> | null>(null);
 
     useEffect(() => {
-        // Only import the component on the client side
-        import("react-water-wave").then((mod) => {
-            setWaterWaveComponent(() => mod.default);
-            setIsMounted(true);
-        });
+        const canvas = document.createElement("canvas");
+        const supportsWebGL = Boolean(
+            canvas.getContext("webgl") || canvas.getContext("experimental-webgl")
+        );
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (!supportsWebGL || reduceMotion) return;
+
+        let active = true;
+        import("react-water-wave")
+            .then((mod) => {
+                if (active) {
+                    setWaterWaveComponent(() => mod.default as ComponentType<WaterWaveComponentProps>);
+                }
+            })
+            .catch(() => {
+                // The portfolio remains fully usable without the optional effect.
+            });
+
+        return () => {
+            active = false;
+        };
     }, []);
 
-    if (!isMounted || !WaterWaveComponent) {
-        return null;
-    }
+    const content = children();
+
+    if (!WaterWaveComponent) return content;
 
     return (
-        <WaterWaveComponent
-            imageUrl={imageUrl}
-            dropRadius={dropRadius}
-            perturbance={perturbance}
-            resolution={resolution}
-        >
-            {children}
-        </WaterWaveComponent>
+        <WaterWaveBoundary fallback={content}>
+            <WaterWaveComponent
+                imageUrl={imageUrl}
+                dropRadius={dropRadius}
+                perturbance={perturbance}
+                resolution={resolution}
+                className="water-wave min-h-screen bg-black"
+            >
+                {() => content}
+            </WaterWaveComponent>
+        </WaterWaveBoundary>
     );
 };
 
